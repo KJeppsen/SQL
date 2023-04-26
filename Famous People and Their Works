@@ -1,0 +1,52 @@
+/* Create table about the people and what they do */
+
+CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT, 
+    year_born INTEGER,
+    career TEXT);
+
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Gerard Way", "1977", "Music");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Hayley Williams", "1988", "Music");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Kurt Cobain", "1967", "Music");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Brandon Urie", "1987", "Music");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Rivers Cuomo", "1970", "Music");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Michael Cera", "1988", "Movies");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Ezra Miller", "1992", "Movies");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Aubrey Plaza", "1984", "Movies");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Pedro Pascal", "1975", "Movies");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Karen Gillan", "1987", "Movies");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Junji Ito", "1963", "Author");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("Kate Di'Camillo", "1964", "Author");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("John Langan", "1963", "Author");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("H.P. Lovecraft", "1890", "Author");
+INSERT INTO famous_people (fullname, year_born, career) VALUES ("George R.R. Martin", "1948", "Author");
+
+/* Create Table about what the person is famous for, and what genre it is in*/
+
+CREATE TABLE works (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    famous_for TEXT,
+    genre TEXT);
+
+INSERT INTO works (person_id, famous_for, genre) VALUES (1, "Welcome to the Black Parade", "Pop-Punk");
+INSERT INTO works (person_id, famous_for, genre) VALUES (2, "Misery Business", "Pop-Punk");
+INSERT INTO works (person_id, famous_for, genre) VALUES (3, "Smells Like Teen Spirit", "Grunge");
+INSERT INTO works (person_id, famous_for, genre) VALUES (4, "I Write Sins Not Tradgedies", "Emo");
+INSERT INTO works (person_id, famous_for, genre) VALUES (5, "Buddy Holly", "Alternative Rock");
+INSERT INTO works (person_id, famous_for, genre) VALUES (6, "Scott Pilgrim vs. The World", "Comedy");
+INSERT INTO works (person_id, famous_for, genre) VALUES (7, "The Perks of Being a Wallflower", "Drama");
+INSERT INTO works (person_id, famous_for, genre) VALUES (8, "Parks and Rec", "Comedy");
+INSERT INTO works (person_id, famous_for, genre) VALUES (9, "The Mandelorian", "Sci-fi");
+INSERT INTO works (person_id, famous_for, genre) VALUES (10, "Doctor Who", "Sci-fi");
+INSERT INTO works (person_id, famous_for, genre) VALUES (11, "Uzumaki", "Cosmic Horror");
+INSERT INTO works (person_id, famous_for, genre) VALUES (12, "The Tale of Desperaux", "Fantasy");
+INSERT INTO works (person_id, famous_for, genre) VALUES (13, "The Fisherman", "Cosmic Horror");
+INSERT INTO works (person_id, famous_for, genre) VALUES (14, "The Call of Cthulhu", "Cosmic Horror");
+INSERT INTO works (person_id, famous_for, genre) VALUES (15, "Game of Thrones", "Fantasy");
+
+-- Query a join on the two tables that show the name, what they are famous for, their career, and the year they were born. Order by their birth year in ascending order
+SELECT a.fullname, b.famous_for, a.career, a.year_born
+FROM famous_people a
+JOIN works b
+ON a.id = b.person_id
+ORDER BY a.year_born
