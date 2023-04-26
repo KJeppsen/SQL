@@ -1,0 +1,53 @@
+/** These are not actual sales and pricing for any Coffee sold by Starbucks, they are just an estimate and made up sales **/
+
+-- Creating table, data types, and rows for Coffee
+CREATE TABLE Coffee_Beans (id INTEGER PRIMARY KEY, name TEXT, price REAL, sold INTEGER, total REAL);
+INSERT INTO Coffee_Beans VALUES 
+(1, "Sumatra", 15.95, 12, 15.95*12),
+(2, "Kenya", 14.95, 9, 14.95*9),
+(3, "Guatamala Antigua", 15.95, 22, 15.95*22),
+(4, "Anniversary Blend", 18.85, 15, 18.85*15),
+(5, "Tribute Blend", 17.95, 12, 19.95*12),
+(6, "Verona Blend", 15.85, 18, 15.85*18),
+(7, "Veranda Blend", 14.95, 8, 14.95*8),
+(8, "Pike Place Blend", 14.95, 13, 14.95*13),
+(9, "Yukon Blend", 18.85, 11, 18.85*11),
+(10, "Italian Roast", 15.95, 15, 15.95*15),
+(11, "Blonde Espresso Roast", 12.95, 19, 12.96*19),
+(12, "Espresso Roast", 12.95, 15, 12.95*15),
+(13, "Komodo Dragon Blend", 16.75, 20, 16.75*20),
+(14, "Odyssey Blend", 17.85, 14, 17.85*14),
+(15, "Siren's Blend", 15.95, 18, 15.95*18);
+
+--Find the name, amount sold, and total sales rounded to the 100ths place from Coffee_Beans, order by amount we sold
+SELECT name, 
+    sold,
+    ROUND(total,2) AS sales
+FROM Coffee_Beans 
+ORDER BY sold;
+
+-- Find the total sales of coffee beans where we sold more than 15 bags
+SELECT Name, 
+    Round(total, 2) AS Gross_sales
+FROM Coffee_Beans
+WHERE sold > 15
+ORDER BY Gross_sales ASC;
+
+-- Find the average total of all coffee beans that we sold more than 15 bags of
+SELECT ROUND(AVG(total),2) AS avg_total 
+FROM Coffee_Beans
+WHERE price > 15;
+
+-- If selling 18 or more bags is in high demand, and selling 12 or less is low demand, query up a result that shows the coffee beans and what demand they are in
+SELECT Name,
+    sold,
+    CASE
+        WHEN sold >= 18 THEN "High Demand"
+        WHEN sold < 18 AND sold >= 13 THEN "Normal Demand"
+        ELSE "Low Demand"
+    END AS Demand
+FROM Coffee_Beans
+ORDER BY sold DESC;
+
+
+
