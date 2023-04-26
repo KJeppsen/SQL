@@ -1,0 +1,57 @@
+-- Create a table and data for an app that plays music, showing what you previously listened to, currently listening to, and what is up next
+CREATE TABLE Musify (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    previous_song TEXT,
+    current_song TEXT,
+    next_song TEXT);
+
+-- Created a playlist, and had it select the current song and set it to previous song upon switching the track, repeated to create a Queue
+INSERT INTO Musify (previous_song, current_song, next_song) VALUES ("DVP", "Mononokay",  "Naruto Themed Sexting");
+INSERT INTO Musify (id, previous_song, current_song, next_song)
+SELECT 
+    max(id) + 1, 
+    current_song AS previous_song, 
+    next_song AS current_song,
+    'Eat Shit' AS next_song
+FROM Musify;
+INSERT INTO Musify (id, previous_song, current_song, next_song)
+SELECT 
+    max(id) + 1, 
+    current_song AS previous_song, 
+    next_song AS current_song,
+    'Dirty Ickes' AS next_song
+FROM Musify;
+INSERT INTO Musify (id, previous_song, current_song, next_song)
+SELECT 
+    max(id) + 1, 
+    current_song AS previous_song, 
+    next_song AS current_song,
+    'Dance, Dance' AS next_song
+FROM Musify;
+INSERT INTO Musify (id, previous_song, current_song, next_song)
+SELECT 
+    max(id) + 1, 
+    current_song AS previous_song, 
+    next_song AS current_song,
+    'Trailer Trash' AS next_song
+FROM Musify;
+INSERT INTO Musify (id, previous_song, current_song, next_song)
+SELECT 
+    max(id) + 1, 
+    current_song AS previous_song, 
+    next_song AS current_song,
+    'Helena' AS next_song
+FROM Musify;
+
+/* Added song Welcome to the Black Parade to queue instead of Trailer Trash */
+
+UPDATE Musify SET next_song = "Welcome to the Black Parade" WHERE id = 5;
+UPDATE Musify SET current_song = "Welcome to the Black Parade" WHERE id = 6;
+SELECT * FROM Musify;
+
+/* Skipped from Naruto Themed Sexting to Dirty Ickes, skipping Eat Shit from the playlist*/
+
+DELETE FROM Musify WHERE id = 3;
+
+SELECT * FROM Musify;
+
