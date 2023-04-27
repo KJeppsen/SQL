@@ -1,0 +1,32 @@
+-- In this PostgreSQL code, I'm referencing and querying a Netflix database that stores tables for directors/cast, and for titles info.
+
+-- How many movie titles are there in the database? (movies only, not tv shows)
+SELECT COUNT(*)
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type = 'Movie';
+
+-- When was the most recent batch of tv shows and/or movies added to the database?
+SELECT "netflix_titles_info"."date_added"
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE "date_added" IS NOT NULL
+ORDER BY "date_added" DESC
+LIMIT 1;
+
+-- List all the movies and tv shows in alphabetical order.
+SELECT "netflix_titles_info"."title"
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY "title";
+
+-- Who was the Director for the movie Bright Star?
+SELECT np.director
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" np
+LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" ni
+ON np.show_id = ni.show_id
+WHERE title = 'Bright Star';
+
+-- What is the oldest movie in the database and what year was it made?
+SELECT title,
+    release_year
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY release_year ASC
+LIMIT 1;
