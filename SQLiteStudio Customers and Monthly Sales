@@ -1,0 +1,45 @@
+SELECT COUNT(*)
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID';
+
+SELECT COUNT(*)
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID'
+AND product LIKE "Iphone";
+
+SELECT DISTINCT c.acctnum, feb.orderID
+FROM customers c
+INNER JOIN FebSales feb
+ON feb.orderId = c.order_id
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID';
+
+SELECT DISTINCT product, MIN(price)
+FROM JanSales
+GROUP BY product, price
+ORDER BY price ASC
+LIMIT 1;
+
+SELECT product, ROUND(SUM(quantity * price), 2) AS total_revenue
+FROM JanSales
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID'
+GROUP BY product;
+
+SELECT product
+,quantity
+,SUM(quantity)*price AS total_revenue
+FROM FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product;
+
+SELECT COUNT(DISTINCT cust.acctnum) as customers
+,AVG(feb.quantity)*feb.price as avg_spent
+FROM FebSales Feb
+LEFT JOIN customers cust
+ON feb.orderID = cust.order_id
+WHERE length(orderid) = 6
+AND orderid <> 'Order ID'
+AND Feb.quantity > 2;
