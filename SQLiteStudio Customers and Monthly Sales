@@ -1,45 +1,55 @@
-SELECT COUNT(*)
+-- How many orders were placed in January? 
+SELECT COUNT(orderID) 
 FROM JanSales
-WHERE length(orderid) = 6
+WHERE length(orderid) = 6 
 AND orderid <> 'Order ID';
 
-SELECT COUNT(*)
+-- How many of those orders were for an iPhone?
+SELECT count(orderID)
 FROM JanSales
-WHERE length(orderid) = 6
+WHERE length(orderid) = 6 
 AND orderid <> 'Order ID'
-AND product LIKE "Iphone";
+AND product = 'iPhone';
 
-SELECT DISTINCT c.acctnum, feb.orderID
-FROM customers c
-INNER JOIN FebSales feb
-ON feb.orderId = c.order_id
-WHERE length(orderid) = 6
+-- Select the customer account numbers for all the orders that were placed in February.
+SELECT DISTINCT a.acctnum
+FROM customers a
+JOIN FebSales b
+ON a.order_id = b.orderid
+WHERE length(orderid) = 6 
 AND orderid <> 'Order ID';
 
-SELECT DISTINCT product, MIN(price)
+-- Which product was the cheapest one sold in January, and what was the price?
+SELECT DISTINCT product, MIN(price) as price
 FROM JanSales
-GROUP BY product, price
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY price
 ORDER BY price ASC
 LIMIT 1;
 
-SELECT product, ROUND(SUM(quantity * price), 2) AS total_revenue
+-- What is the total revenue for each product sold in January? (Revenue can be calculated using the number of products sold and the price of the products).
+SELECT SUM(quantity)*price AS total_revenue,
+product
 FROM JanSales
-WHERE length(orderid) = 6
-AND orderid <> 'Order ID'
 GROUP BY product;
 
-SELECT product
-,quantity
-,SUM(quantity)*price AS total_revenue
+-- Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT product, 
+SUM(quantity), 
+SUM(quantity) * price AS total_revenue
 FROM FebSales
-WHERE location = '548 Lincoln St, Seattle, WA 98101'
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+AND location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY product;
 
-SELECT COUNT(DISTINCT cust.acctnum) as customers
-,AVG(feb.quantity)*feb.price as avg_spent
-FROM FebSales Feb
-LEFT JOIN customers cust
-ON feb.orderID = cust.order_id
-WHERE length(orderid) = 6
+-- How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?
+SELECT COUNT(DISTINCT a.acctnum) as customer
+,AVG(b.quantity* b.price) AS avg_spent
+FROM FebSales b
+LEFT JOIN customers a
+ON a.order_id = b.orderID
+WHERE length(orderid) = 6 
 AND orderid <> 'Order ID'
-AND Feb.quantity > 2;
+AND quantity > 2;
