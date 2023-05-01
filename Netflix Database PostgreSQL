@@ -1,4 +1,4 @@
--- In this PostgreSQL code, I'm referencing and querying a Netflix database that stores tables for directors/cast, and for titles info.
+# In this PostgreSQL code, I'm referencing and querying a Netflix database that stores tables for directors/cast, and for titles info.
 
 -- How many movie titles are there in the database? (movies only, not tv shows)
 SELECT COUNT(*)
