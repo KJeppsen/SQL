@@ -1,4 +1,4 @@
--- Creating tables for seperate types of drinks that were ordered during my shift
+# In this code, I started by creating tables for seperate types of drinks that were ordered during my shift
 
 CREATE TABLE Espresso_Beverages (
 	id INT PRIMARY KEY ,
@@ -18,7 +18,7 @@ CREATE TABLE Tea_Beverages (
     sold TEXT,
     gross_sales INT);
 
--- Altering tables to show cents instead of single numbers
+# After creating table, I altered it so the sales showed as decimals, rather than integers
 
 ALTER TABLE Espresso_Beverages
 MODIFY COLUMN gross_sales DECIMAL(25, 2);
@@ -28,6 +28,9 @@ MODIFY COLUMN gross_sales DECIMAL(25, 2);
 
 ALTER TABLE Tea_Beverages
 MODIFY COLUMN gross_sales DECIMAL(25, 2);
+
+# After creating the table, I insterted data of drinks that were ordered from me
+# I also put a disclaimer to express the sales were not Starbucks actually revenue
 
 /* These Sales are not including State Tax, were all taken from a work day I was apart of, and are modified Gross sales to not disclose actual revenue of the Stabucks Company.
 These drinks also do not include any additional modifiers such as syrup or extra shots of espresso. 
@@ -192,6 +195,7 @@ INSERT INTO tea_beverages (id, drink, sold, gross_sales)
 
 -- End of Tea Beverages
 
+# After the data was in the tables, I queried the tables using joins, aggregated data, and case functions depending on the questions I was asked by my coworkers
 
 -- How many drinks were sold on this day?
 SELECT SUM(sold) AS total_sold FROM 
