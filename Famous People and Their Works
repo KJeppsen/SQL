@@ -1,9 +1,11 @@
-/* Create table about the people and what they do */
+# Created a table about famous people and what they do
 
 CREATE TABLE famous_people (id INTEGER PRIMARY KEY AUTOINCREMENT,
     fullname TEXT, 
     year_born INTEGER,
     career TEXT);
+
+#Here I inserted data to the famous_people table
 
 INSERT INTO famous_people (fullname, year_born, career) VALUES ("Gerard Way", "1977", "Music");
 INSERT INTO famous_people (fullname, year_born, career) VALUES ("Hayley Williams", "1988", "Music");
@@ -21,7 +23,7 @@ INSERT INTO famous_people (fullname, year_born, career) VALUES ("John Langan", "
 INSERT INTO famous_people (fullname, year_born, career) VALUES ("H.P. Lovecraft", "1890", "Author");
 INSERT INTO famous_people (fullname, year_born, career) VALUES ("George R.R. Martin", "1948", "Author");
 
-/* Create Table about what the person is famous for, and what genre it is in*/
+# I then created a new table and data about what the person is famous for, and what genre their work is in
 
 CREATE TABLE works (id INTEGER PRIMARY KEY AUTOINCREMENT,
     person_id INTEGER,
@@ -45,6 +47,7 @@ INSERT INTO works (person_id, famous_for, genre) VALUES (14, "The Call of Cthulh
 INSERT INTO works (person_id, famous_for, genre) VALUES (15, "Game of Thrones", "Fantasy");
 
 -- Query a join on the two tables that show the name, what they are famous for, their career, and the year they were born. Order by their birth year in ascending order
+
 SELECT a.fullname, b.famous_for, a.career, a.year_born
 FROM famous_people a
 JOIN works b
