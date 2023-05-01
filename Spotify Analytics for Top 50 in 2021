@@ -1,0 +1,53 @@
+# Here I downloaded data from Kaggle for the top 50 songs of 2021
+# I then created a table to insert the Spotify data into
+# Afterwards, I ran SQL code to analyze and query the data
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+# Here I imported the .CSV file into SQLite and confirmed it showed the correct data
+
+SELECT * FROM Spotifydata;
+
+# This is when I explored the data using aggregations, filters, and grouping of the dataset to best view for myself
+
+-- What is the average popularity of the top 10 most danceable songs?
+SELECT AVG(popularity)
+FROM BIT_DB.Spotifydata
+WHERE danceability = (SELECT danceability
+                      FROM BIT_DB.Spotifydata
+                      ORDER BY danceability
+                      LIMIT 10);
+
+--  What key signature is the majority of the top 50 songs in?
+SELECT ROUND(AVG(song_key)) as key_signature
+FROM BIT_DB.Spotifydata;
+
+-- Who had the most songs in the top 50 list?
+SELECT DISTINCT artist_name
+,COUNT(*) AS songs
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+HAVING COUNT(*) = 
+    (SELECT MAX(songs_count) FROM
+        (SELECT COUNT(*) AS songs_count
+        FROM BIT_DB.Spotifydata
+        GROUP BY artist_name
+        ))
