@@ -1,3 +1,6 @@
+# Here, I created a store-like table that sold Starbucks coffee.
+# I also added a disclaimer that all the sales and quantities were not legit
+
 /** These are not actual sales and pricing for any Coffee sold by Starbucks, they are just an estimate and made up sales **/
 
 -- Creating table, data types, and rows for Coffee
@@ -48,6 +51,3 @@ SELECT Name,
     END AS Demand
 FROM Coffee_Beans
 ORDER BY sold DESC;
-
-
-
