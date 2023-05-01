@@ -1,4 +1,4 @@
-/*Querying a database in SQLite with multiple tables in it to quantify statistics for monthly sales and customer order dates. */
+# Querying a database in SQLite with multiple tables in it to quantify statistics for monthly sales and customer order dates. 
 
 -- How many orders were placed in January? 
 SELECT COUNT(orderID) 
