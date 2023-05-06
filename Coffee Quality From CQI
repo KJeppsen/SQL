@@ -22,7 +22,7 @@ SELECT [Owner.1]
 , Body
 , [Total.Cup.Points] AS TotalCupPoints
 FROM BIT_DB.CoffeeQualityArabica
-WHERE TotalCupPoints <> 0
+WHERE CAST([Total.Cup.Points] AS Float) <> 0
 AND Country <> ''
 AND TotalCupPoints IS NOT NULL
 ORDER BY Country, TotalCupPoints DESC;
