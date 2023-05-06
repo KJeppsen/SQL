@@ -79,3 +79,25 @@ ON r.Owner = a.Owner;
 SELECT ROUND(AVG(acidity), 2) AS Average_Acidity
 FROM BIT_DB.CoffeeQualityArabica
 WHERE [Country.of.Origin] = 'Ethiopia';
+
+# Here I graded all the coffee, and grouped them by being either Specialty or Non-Specialty Coffee
+# I needed to CAST the [Total.Cup.Points] Column, as the CASE was not reading it as a FLOAT
+# The problem was due to the dataset coming from a external source
+
+-- Group all the Arabica coffee by them being Specialty or not, and what grade of coffee they are (Good, Excellent, Etc)
+SELECT Owner
+, [Country.of.Origin]
+, [Farm.Name]
+, [Total.Cup.Points]
+, CASE
+    WHEN CAST([Total.Cup.Points] AS FLOAT) >= 80 THEN "Specialty"
+    ELSE "Not Specialty"
+    END AS "Specialty"
+, CASE
+    WHEN CAST([Total.Cup.Points] AS FLOAT) >= 90 THEN "Outstanding"
+    WHEN CAST([Total.Cup.Points] AS FLOAT) >= 85  THEN "Excellent"
+    WHEN CAST([Total.Cup.Points] AS FLOAT) >= 80 THEN "Very Good"
+    ELSE "Below Specialty Quality"
+    END AS "Grade"
+FROM BIT_DB.CoffeeQualityArabica
+WHERE [Total.Cup.Points] IS NOT NULL;
