@@ -1,0 +1,435 @@
+CREATE TABLE Products (id INTEGER PRIMARY KEY AUTOINCREMENT, Product TEXT);
+
+ALTER TABLE Products
+ADD COLUMN SKU_Code TEXT;
+
+/* Inserting all backroom products within my store location */
+INSERT INTO Products (Product, SKU_Code) VALUES
+('Strawberry Acia Refresher Concentrate', 'SB001'),
+('Mango Dragonfruit Refresher Concentrate', 'SB002'),
+('Pinapple Passionfruit Refresher Concentrate', 'SB003'),
+('Lemonade Concentrate', 'SB004'),
+('Mocha Powder', 'SB005'),
+('White Mocha Sauce', 'SB006'),
+('Dark Caramel Sauce', 'SB007'),
+('Oatmilk', 'SB008'),
+('Coconut Milk', 'SB009'),
+('Almond Milk', 'SB010'),
+('Soy Milk', 'SB0011'),
+('Strawberry Puree', 'SB012'),
+('Peach Juice', 'SB013'),
+('Dried Pineapple Inclusions', 'SB014'),
+('Dried Strawberry Inclusions', 'SB015'),
+('Dried Dragonfruit Inclusions', 'SB016'),
+('Raw Brown Sugar', 'SB017'),
+('Stevia', 'SB018'),
+('Cane Sugar', 'SB019'),
+('Splenda', 'SB020'),
+('Royal English Breakfast Tea', 'SB021'),
+('Earl Grey Tea', 'SB022'),
+('Emporers Cloud and Mist Tea', 'SB023'),
+('Jade Citrus Mint Tea', 'SB024'),
+('Peach Tranquility Tea', 'SB025'),
+('Mint Majesty Tea', 'SB026'),
+('Chai Tea Concentrate', 'SB027'),
+('Vanilla Syrup', 'SB028'),
+('SF Vanilla Syrup', 'SB029'),
+('Classic Syrup', 'SB029'),
+('Honey Blend Syrup', 'SB030'),
+('Cinnamon Caramel Syrup', 'SB031'),
+('Liquid Cane Syrup', 'SB032'),
+('Brown Sugar Syrup', 'SB033'),
+('Caramel Syrup', 'SB034'),
+('Cinnamon Dolce Syrup', 'SB035'),
+('Hazelnut Syrup', 'SB036'),
+('Macadamia Syrup', 'SB037'),
+('Peppermint Syrup', 'SB038'),
+('Toasted Vanilla Syrup', 'SB039'),
+('Toffeenut Syrup', 'SB040'),
+('White Chocolate Mint Sauce', 'SB041'),
+('Espresso Beans', 'SB042'),
+('Pike Place Beans', 'SB043'),
+('Decaf Espresso beans', 'SB044'),
+('Cold Brew Beans', 'SB045'),
+('Ice Coffee Bags', 'SB046'),
+('Ice Green Tea Bags', 'SB047'),
+('Ice Black Tea Bags', 'SB048'),
+('Ice Passion Tea Bags', 'SB049'),
+('Apple Juice', 'SB050'),
+('Caramel Crunch Topping', 'SB051'),
+('Mocha Cookie Crumble Topping', 'SB052'),
+('White Mocha Mint Topping', 'SB053'),
+('Matcha Tea Powder', 'SB054'),
+('Caramel Sauce', 'SB055'),
+('Frappacino Roast', 'SB056'),
+('Java Chips', 'SB057'),
+('Almonds', 'SB058'),
+('Chocolate Milk', 'SB059'),
+('Apple Juice Box', 'SB060'),
+('Hand Towels', 'SB061'),
+('Coffee Frappe Base', 'SB062'),
+('Creme Frappe Base', 'SB063'),
+('Napkins', 'SB064'),
+('Merchandise Bag Small', 'SB065'),
+('Merchandise Bag Large', 'SB066'),
+('Pastry Bags', 'SB067'),
+('Sandwich Bags', 'SB068'),
+('Egg Bite Bags', 'SB069'),
+('Egg Bite Trays', 'SB070'),
+('Salt Packets', 'SB071'),
+('Siracha Packets', 'SB072'),
+('Coffee Filters', 'SB073'),
+('Drink Trays', 'SB074'),
+('Cold Brew Coffee Filters', 'SB075'),
+('16/20oz Nitro Cold Lids', 'SB076'),
+('Large Straws', 'SB077'),
+('Small Straws', 'SB078'),
+('Traveler Containers', 'SB079'),
+('Traverler Lids', 'SB080'),
+('Vanilla Bean Powder', 'SB081'),
+('8oz Hot Cups', 'SB082'),
+('8oz Hot Lids', 'SB083'),
+('12oz Hot Cups', 'SB084'),
+('12oz Hot Lids', 'SB085'),
+('16oz Hot Cups', 'SB086'),
+('16/20oz Hot Lids', 'SB087'),
+('20oz Hot Cups', 'SB088'),
+('12oz Cold Cups', 'SB089'),
+('12oz Cold Lids', 'SB090'),
+('16oz Cold Cups', 'SB091'),
+('16/26oz Cold Lids', 'SB092'),
+('26oz Cold Cups', 'SB093'),
+('30oz Cold Cups', 'SB094'),
+('30oz Cold Lids', 'SB095'),
+('12oz Cold Dome Lids', 'SB096'),
+('16/26oz Cold Dome Lids', 'SB097'),
+('Raw Honey Packets', 'SB098'),
+('4oz Sample Cup', 'SB099'),
+('Nitrogen Canisters', 'SB100'),
+('Espresso Machine Cleaning Tablets', 'SB101'),
+('Dish Sponge', 'SB102'),
+('Magic Eraser', 'SB103'),
+('Oven Cleaner', 'SB104'),
+('Oven Guard', 'SB105'),
+('Wooden Stir Sticks', 'SB106'),
+('Plastic Stoppers', 'SB107'),
+('Plastic Spoons', 'SB108'),
+('Plastic Forks', 'SB109');
+
+UPDATE Products
+SET SKU_Code = 
+    CASE
+        WHEN id = 11 THEN 'SB011'
+        ELSE SKU_Code
+    END;
+
+SELECT * FROM Products;
+
+/* Creating In_Stock table and setting a trigger to update the DATETIME datatype to display the current time of when the update happens.
+Planning on creating a basic app to update Quantity for when product is pulled or added from backroom */
+CREATE TABLE In_Stock (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  Product_Name TEXT,
+  Product_Type TEXT,
+  Quantity INTEGER,
+  Last_Updated DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TRIGGER update_last_updated
+AFTER UPDATE ON In_Stock
+FOR EACH ROW
+BEGIN
+    UPDATE In_Stock
+    SET Last_Updated = CURRENT_TIMESTAMP
+    WHERE ID = OLD.ID;
+END;
+/* Product_Types consist of Ingredients, Milk, Tea, Coffee, Retail, and Supplies */
+INSERT INTO In_Stock (Product_Name, Product_Type, Quantity)
+VALUES
+('Strawberry Acia Refresher Concentrate', 'Ingredient', 45),
+('Mango Dragonfruit Refresher Concentrate', 'Ingredient', 38),
+('Pinapple Passionfruit Refresher Concentrate', 'Ingredient', 12),
+('Lemonade Concentrate', 'Ingredient', 14),
+('Mocha Powder', 'Ingredient', 9),
+('White Mocha Sauce', 'Ingredient', 14),
+('Dark Caramel Sauce', 'Ingredient', 6),
+('Oatmilk', 'Milk', 30),
+('Coconut Milk', 'Milk', 24),
+('Almond Milk', 'Milk', 16),
+('Soy Milk', 'Milk', 10),
+('Strawberry Puree', 'Ingredient', 8),
+('Peach Juice', 'Ingredient', 6),
+('Dried Pineapple Inclusions', 'Ingredient', 10),
+('Dried Strawberry Inclusions', 'Ingredient', 19),
+('Dried Dragonfruit Inclusions', 'Ingredient', 21),
+('Raw Brown Sugar', 'Ingredient', 1),
+('Stevia', 'Ingredient', 1),
+('Cane Sugar', 'Ingredient', 1),
+('Splenda', 'Ingredient', 1),
+('Royal English Breakfast Tea', 'Tea', 1),
+('Earl Grey Tea', 'Tea', 1),
+('Emporers Cloud and Mist Tea', 'Tea', 1),
+('Jade Citrus Mint Tea', 'Tea', 1),
+('Peach Tranquility Tea', 'Tea', 1),
+('Mint Majesty Tea', 'Tea', 1),
+('Chai Tea Concentrate', 'Tea', 22),
+('Vanilla Syrup', 'Ingredient', 25),
+('SF Vanilla Syrup', 'Ingredient', 5),
+('Classic Syrup', 'Ingredient', 7),
+('Honey Blend Syrup', 'Ingredient', 4),
+('Cinnamon Caramel Syrup', 'Ingredient', 6),
+('Liquid Cane Syrup', 'Ingredient', 5),
+('Brown Sugar Syrup', 'Ingredient', 9),
+('Caramel Syrup', 'Ingredient', 15),
+('Cinnamon Dolce Syrup', 'Ingredient', 8),
+('Hazelnut Syrup', 'Ingredient', 7),
+('Macadamia Syrup', 'Ingredient', 5),
+('Peppermint Syrup', 'Ingredient', 4),
+('Toasted Vanilla Syrup', 'Ingredient', 5),
+('Toffeenut Syrup', 'Ingredient', 5),
+('White Chocolate Mint Sauce', 'Ingredient', 4),
+('Espresso Beans', 'Coffee', 10),
+('Pike Place Beans', 'Coffee', 15),
+('Decaf Espresso Beans', 'Coffee', 4),
+('Cold Brew Beans', 'Coffee', 4),
+('Ice Coffee Bags', 'Coffee', 16),
+('Ice Green Tea Bags', 'Tea', 1),
+('Ice Black Tea Bags', 'Tea', 1),
+('Ice Passion Tea Bags', 'Tea', 1),
+('Apple Juice', 'Ingredient', 6),
+('Caramel Crunch Topping', 'Ingredient', 8),
+('Mocha Cookie Crumble Topping', 'Ingredient', 7),
+('White Mocha Mint Topping', 'Ingredient', 5),
+('Matcha Tea Powder', 'Ingredient', 9),
+('Caramel Sauce', 'Ingredient', 20),
+('Frappacino Roast', 'Coffee', 1),
+('Java Chips', 'Ingredient', 20),
+('Almonds', 'Retail', 12),
+('Chocolate Milk', 'Retail', 20),
+('Apple Juice Box', 'Retail', 22),
+('Hand Towels', 'Supplies', 9),
+('Coffee Frappe Base', 'Ingredient', 21),
+('Creme Frappe Base', 'Ingredient', 24),
+('Napkins', 'Supplies', 11),
+('Merchandise Bag Small', 'Retail', 1),
+('Merchandise Bag Large', 'Retail', 1),
+('Pastry Bags', 'Supplies', 1),
+('Sandwich Bags', 'Supplies', 1),
+('Egg Bite Bags', 'Supplies', 1),
+('Egg Bite Trays', 'Supplies', 1),
+('Salt Packets', 'Ingredient', 1),
+('Siracha Packets', 'Ingredient', 1),
+('Coffee Filters', 'Supplies', 1),
+('Drink Trays', 'Supplies', 2),
+('Cold Brew Coffee Filters', 'Supplies', 1),
+('16/20oz Nitro Cold Lids', 'Supplies', 6),
+('Large Straws', 'Supplies', 5),
+('Small Straws', 'Supplies', 4),
+('Traveler Containers', 'Supplies', 12),
+('Traverler Lids', 'Supplies', 12),
+('Vanilla Bean Powder', 'Ingredient', 10),
+('8oz Hot Cups', 'Supplies', 14),
+('8oz Hot Lids', 'Supplies', 5),
+('12oz Hot Cups', 'Supplies', 18),
+('12oz Hot Lids', 'Supplies', 7),
+('16oz Hot Cups', 'Supplies', 25),
+('16/20oz Hot Lids', 'Supplies', 14),
+('20oz Hot Cups', 'Supplies', 21),
+('12oz Cold Cups', 'Supplies', 9),
+('12oz Cold Lids', 'Supplies', 6),
+('16oz Cold Cups', 'Supplies', 12),
+('16/26oz Cold Lids', 'Supplies', 7),
+('26oz Cold Cups', 'Supplies', 9),
+('30oz Cold Cups', 'Supplies', 15),
+('30oz Cold Lids', 'Supplies', 7),
+('12oz Cold Dome Lids', 'Supplies', 6),
+('16/26oz Cold Dome Lids', 'Supplies', 6),
+('Raw Honey Packets', 'Ingredient', 1),
+('4oz Sample Cup', 'Supplies', 4),
+('Nitrogen Canisters', 'Supplies', 17),
+('Espresso Machine Cleaning Tablets', 'Supplies', 1),
+('Dish Sponge', 'Supplies', 1),
+('Magic Eraser', 'Supplies', 0),
+('Oven Cleaner', 'Supplies', 2),
+('Oven Guard', 'Supplies', 1),
+('Wooden Stir Sticks', 'Supplies', 1),
+('Plastic Stoppers', 'Supplies', 3),
+('Plastic Spoons', 'Supplies', 1),
+('Plastic Forks', 'Supplies', 1);
+
+SELECT * FROM In_Stock;
+
+/* Was getting an error with the previous Trigger, so I dropped it and recreated it to only update on quantity changes */
+DROP TRIGGER IF EXISTS update_last_updated;
+
+CREATE TRIGGER update_last_updated
+AFTER UPDATE OF Quantity ON In_Stock
+FOR EACH ROW
+BEGIN
+    UPDATE In_Stock
+    SET Last_Updated = CURRENT_TIMESTAMP
+    WHERE ID = NEW.ID AND NEW.Quantity <> OLD.Quantity;
+END;
+
+/* Testing Updates on different columns to test Trigger */
+UPDATE In_Stock
+SET Product_Type = 
+    CASE
+        WHEN id IN (99, 73, 72, 20, 19, 18, 17) THEN 'Supplies'
+        ELSE Product_Type
+    END
+;
+
+UPDATE In_Stock
+SET Quantity = 
+    CASE
+        WHEN id = 1 THEN 46
+        ELSE Quantity
+    END
+;
+
+SELECT * FROM In_Stock;
+
+CREATE TABLE Stock_Goals (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+Product_Name TEXT,
+Quantity INTEGER);
+
+INSERT INTO Stock_Goals (Product_Name, Quantity) VALUES
+('Strawberry Acia Refresher Concentrate', 42),
+('Mango Dragonfruit Refresher Concentrate', 36),
+('Pinapple Passionfruit Refresher Concentrate', 12),
+('Lemonade Concentrate', 14),
+('Mocha Powder', 7),
+('White Mocha Sauce', 8),
+('Dark Caramel Sauce', 8),
+('Oatmilk', 45),
+('Coconut Milk', 32),
+('Almond Milk', 16),
+('Soy Milk', 8),
+('Strawberry Puree', 8),
+('Peach Juice', 8),
+('Dried Pineapple Inclusions', 10),
+('Dried Strawberry Inclusions', 20),
+('Dried Dragonfruit Inclusions', 20),
+('Raw Brown Sugar', 1),
+('Stevia', 1),
+('Cane Sugar', 1),
+('Splenda', 1),
+('Royal English Breakfast Tea', 1),
+('Earl Grey Tea', 1),
+('Emporers Cloud and Mist Tea', 1),
+('Jade Citrus Mint Tea', 1),
+('Peach Tranquility Tea', 1),
+('Mint Majesty Tea', 1),
+('Chai Tea Concentrate', 14),
+('Vanilla Syrup', 24),
+('SF Vanilla Syrup', 6),
+('Classic Syrup', 6),
+('Honey Blend Syrup', 6),
+('Cinnamon Caramel Syrup', 6),
+('Liquid Cane Syrup', 6),
+('Brown Sugar Syrup', 6),
+('Caramel Syrup', 12),
+('Cinnamon Dolce Syrup', 6),
+('Hazelnut Syrup', 6),
+('Macadamia Syrup', 6),
+('Peppermint Syrup', 6),
+('Toasted Vanilla Syrup', 6),
+('Toffeenut Syrup', 6),
+('White Chocolate Mint Sauce', 4),
+('Espresso Beans', 12),
+('Pike Place Beans', 12),
+('Decaf Espresso Beans', 4),
+('Cold Brew Beans', 4),
+('Ice Coffee Bags', 30),
+('Ice Green Tea Bags', 1),
+('Ice Black Tea Bags', 1),
+('Ice Passion Tea Bags', 1),
+('Apple Juice', 6),
+('Caramel Crunch Topping', 10),
+('Mocha Cookie Crumble Topping', 8),
+('White Mocha Mint Topping', 4),
+('Matcha Tea Powder', 12),
+('Caramel Sauce', 24),
+('Frappacino Roast', 1),
+('Java Chips', 20),
+('Almonds', 12),
+('Chocolate Milk', 20),
+('Apple Juice Box', 22),
+('Hand Towels', 14),
+('Coffee Frappe Base', 24),
+('Creme Frappe Base', 24),
+('Napkins', 8),
+('Merchandise Bag Small', 1),
+('Merchandise Bag Large', 1),
+('Pastry Bags', 1),
+('Sandwich Bags', 1),
+('Egg Bite Bags', 1),
+('Egg Bite Trays', 1),
+('Salt Packets', 1),
+('Siracha Packets', 1),
+('Coffee Filters', 1),
+('Drink Trays', 1),
+('Cold Brew Coffee Filters', 1),
+('16/20oz Nitro Cold Lids', 8),
+('Large Straws', 6),
+('Small Straws', 4),
+('Traveler Containers', 12),
+('Traverler Lids', 12),
+('Vanilla Bean Powder', 12),
+('8oz Hot Cups', 14),
+('8oz Hot Lids', 8),
+('12oz Hot Cups', 18),
+('12oz Hot Lids', 8),
+('16oz Hot Cups', 26),
+('16/20oz Hot Lids', 14),
+('20oz Hot Cups', 26),
+('12oz Cold Cups', 15),
+('12oz Cold Lids', 8),
+('16oz Cold Cups', 24),
+('16/26oz Cold Lids', 12),
+('26oz Cold Cups', 26),
+('30oz Cold Cups', 16),
+('30oz Cold Lids', 8),
+('12oz Cold Dome Lids', 8),
+('16/26oz Cold Dome Lids', 12),
+('Raw Honey Packets', 1),
+('4oz Sample Cup', 6),
+('Nitrogen Canisters', 20),
+('Espresso Machine Cleaning Tablets', 1),
+('Dish Sponge', 4),
+('Magic Eraser', 4),
+('Oven Cleaner', 4),
+('Oven Guard', 4),
+('Wooden Stir Sticks', 2),
+('Plastic Stoppers', 6),
+('Plastic Spoons', 1),
+('Plastic Forks', 1);
+
+SELECT Goals.Product_Name,
+Goals.Quantity AS Goal,
+IStock.Quantity AS Stock,
+    CASE
+        WHEN IStock.Quantity > Goals.Quantity THEN 'Over Stocked'
+        WHEN IStock.Quantity < (Goals.Quantity/2) THEN 'Need to Order'
+        WHEN IStock.Quantity < Goals.Quantity THEN 'Low Stock'
+        ELSE 'In Stock'
+    END AS [Order]
+FROM Stock_Goals Goals
+JOIN In_Stock IStock
+ON Goals.id = IStock.id
+ORDER BY
+    CASE [Order]
+        WHEN 'Need to Order' THEN 1
+        WHEN 'Low Stock' THEN 2
+        WHEN 'In Stock' THEN 3
+        WHEN 'Over Stocked' THEN 4
+        ELSE null
+    END
+ASC;
+
+-- Updating Quantity to be for a week and a half, to account for surplus orders.
+UPDATE Stock_Goals
+SET Quantity = Quantity * 1.5;
