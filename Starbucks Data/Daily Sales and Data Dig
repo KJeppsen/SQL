@@ -1,0 +1,283 @@
+# In this code, I started by creating tables for seperate types of drinks that were ordered during my shift
+
+CREATE TABLE Espresso_Beverages (
+	id INT PRIMARY KEY ,
+    drink TEXT,
+    sold TEXT,
+    gross_sales INT);
+    
+CREATE TABLE Refreshments (
+	id INT PRIMARY KEY,
+    drink TEXT,
+    sold TEXT,
+    gross_sales INT);
+    
+CREATE TABLE Tea_Beverages (
+	id INT PRIMARY KEY,
+    drink TEXT,
+    sold TEXT,
+    gross_sales INT);
+
+# After creating table, I altered it so the sales showed as decimals, rather than integers
+
+ALTER TABLE Espresso_Beverages
+MODIFY COLUMN gross_sales DECIMAL(25, 2);
+
+ALTER TABLE Refreshments
+MODIFY COLUMN gross_sales DECIMAL(25, 2);
+
+ALTER TABLE Tea_Beverages
+MODIFY COLUMN gross_sales DECIMAL(25, 2);
+
+# After creating the table, I insterted data of drinks that were ordered from me
+# I also put a disclaimer to express the sales were not Starbucks actually revenue
+
+/* These Sales are not including State Tax, were all taken from a work day I was apart of, and are modified Gross sales to not disclose actual revenue of the Stabucks Company.
+These drinks also do not include any additional modifiers such as syrup or extra shots of espresso. 
+This is only being used for practice for SQL */
+
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (1, "TL WHT MOCHA", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (2, "TL ICED WHT MOCHA", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (3, "VT ICED WHT MOCHA", 7 , 45);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (5, "GR HOT CHOC", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (4, "DOPPIO ESPRESSO", 2 , 5);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (6, "VT AMERICANO", 2 , 7);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (7, "TRIPLE ESPRESSO", 2 , 6);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (8, "VT ICED AMERICANO", 3 , 11);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (9, "QUAD ESPRESSO", 3 , 10);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (10, "GR WHT MOCHA", 3 , 17);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (11, "TL LATTE", 5, 19);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (12, "TL MOCHA", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (13, "GR MOCHA", 3 , 15);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (14, "GR AMERICANO", 1 , 3);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (15, "GR ICED MOCHA", 2 , 10);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (16, "VT LATTE", 5 , 26);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (17, "GR CARML MACCHIATO", 1 , 5);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (18, "VT CARML MACCHIATO", 5 , 29);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (19, "VT ICED LATTE", 3 , 16);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (20, "VT WHT MOCHA", 5 , 31);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (21, "GR HOT WHT CHOC", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (22, "VT ICED CARML MACCH", 4 , 24);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (23, "GR CAPPUCCINO", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (24, "GR LATTE", 7 , 35);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (25, "VT MOCHA", 3 , 17);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (26, "TL CARML MACCHIATO", 1 , 4);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (27, "VT ICED MOCHA", 1 , 6);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (28, "TL CARML MACCH", 2 , 10);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (29, "GR FLAT WHITE", 1 , 5);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (30, "GR BR SGR OTM ESP", 3 , 17);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (31, "VT SHKN ESP", 3 , 14);
+INSERT INTO espresso_beverages (id, drink, sold, gross_sales)
+	VALUES (32, "VT BR SGR OTM ESP", 4 , 25);
+  
+-- End of Espresso_Beverages
+
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (50, "TL CUP OF WATER", 1 , 0);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (51, "GR CUP OF WATER", 1 , 0);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (52, "VT CUP OF WATER", 3 , 0);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (53, "GR PINK DRINK VSC CF", 1 , 6);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (54, "VT PINK DRINK VSC CF", 1 , 7);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (55, "GR PARADISE DRINK VS", 1 , 6);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (56, "VT PARADISE DRINK V", 3 , 21);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (57, "TL DRAGON DRINK VSC", 1 , 6);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (58, "GR DRAGON DRINK VSC", 3 , 18);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (59, "VT DRAGON DRINK VSC", 3 , 20);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (60, "TR STRBRY ACAI RFR", 6 , 34);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (61, "VT STRWBRY ACAI RFR", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (62, "TL STRWBRY ACAI RFR", 1 , 4);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (63, "TL PINK DRINK", 1 , 4);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (64, "GR PINK DRINK", 2 , 10);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (65, "VT PINK DRINK", 6 , 35);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (66, "TR PINK DRINK", 4 , 24);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (67, "VT MANGO DRGNFRUIT", 2 , 10);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (68, "TR MANGO DRGNFRUIT", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (69, "GR STRWB ACAI LEM", 3 , 15);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (70, "VT STRWB ACAI LEM", 5 , 29);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (71, "GR MNGO DRG LEM", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (72, "GR DRAGON DRINK", 2 , 10);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (73, "VT DRAGON DRINK", 3 , 17);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (74, "TR DRAGON DRINK", 1 , 6);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (75, "VT PNPL RFRSH", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (76, "TR PNPL RFRSH", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (77, "GR PNPL RFRSH LEM", 1 , 5);
+INSERT INTO refreshments (id, drink, sold, gross_sales)
+	VALUES (78, "VT PNPL RFRSH LEM", 2 , 11);
+
+-- End of Refreshments
+
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (100, "VT EARL GREY", 1 , 3);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (101, "TL EMPERORS CLOUD", 1 , 3);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (102, "TL CHAI TEA LATTE", 2 , 9);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (103, "VT CHAI TEA LATTE", 5 , 27);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (104, "GR ICD CHAI TEA LATTE", 2 , 10);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (105, "VT ICD CHAI TEA LATTE", 9 , 50);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (106, "VT ICD GRT LAT", 2 , 11);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (107, "VT LNDN FOG T", 1 , 5);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (108, "VT IC GRN T LEM", 2 , 8);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (109, "VT IC BLK T LEM", 1 , 4);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (110, "TR IC GREEN TEA", 1 , 4);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (111, "VT IC GREEN TEA", 1 , 3);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (112, "VT IC BLACK TEA", 1 , 3);
+INSERT INTO tea_beverages (id, drink, sold, gross_sales)
+	VALUES (113, "VT PASSN TEA", 2 , 7);
+
+-- End of Tea Beverages
+
+# After the data was in the tables, I queried the tables using joins, aggregated data, and case functions depending on the questions I was asked by my coworkers
+
+-- How many drinks were sold on this day?
+SELECT SUM(sold) AS total_sold FROM 
+(SELECT SUM(ESP.sold) AS sold FROM espresso_beverages ESP
+UNION
+SELECT SUM(RFR.sold) AS sold FROM refreshments RFR
+UNION 
+SELECT SUM(TEA.sold) AS sold FROM tea_beverages TEA)
+AS Subquery;
+
+-- How much did we make in total?
+SELECT SUM(gross_sales) AS total_sales FROM 
+(SELECT SUM(ESP.gross_sales) AS gross_sales FROM espresso_beverages ESP
+UNION
+SELECT SUM(RFR.gross_sales) AS gross_sales FROM refreshments RFR
+UNION 
+SELECT SUM(TEA.gross_sales) AS gross_sales FROM tea_beverages TEA)
+AS Subquery;
+
+-- How much did we make this day in our top sold drinks per table?
+SELECT 'espresso_beverages' AS table_name, drink, MAX(sold) AS sold, MAX(gross_sales) AS gross_sales
+FROM espresso_beverages
+GROUP BY drink
+HAVING sold = (SELECT MAX(sold) FROM espresso_beverages)
+UNION ALL
+SELECT 'refreshments' AS table_name, drink, MAX(sold) AS sold, MAX(gross_sales) AS gross_sales
+FROM refreshments
+GROUP BY drink
+HAVING sold = (SELECT MAX(sold) FROM refreshments)
+UNION ALL
+SELECT 'tea_beverages' AS table_name, drink, MAX(sold) AS sold, MAX(gross_sales) AS gross_sales
+FROM tea_beverages
+GROUP BY drink
+HAVING sold = (SELECT MAX(sold) FROM tea_beverages);
+
+-- How many pink drinks were sold?
+SELECT drink AS pink_drink, sold FROM refreshments
+WHERE drink LIKE '%pink%';
+
+-- Can you print a list of all drink types from our sales?
+SELECT id, drink FROM espresso_beverages
+UNION
+SELECT id, drink FROM refreshments
+UNION
+SELECT id, drink FROM tea_beverages;
+
+-- Can you order all of the drinks by the size they come in, starting from Trenta down to Tall, and show the full name on the side of the drink?
+SELECT drink, 
+	CASE
+		WHEN drink LIKE 'TR %' THEN 'Trenta'
+        WHEN drink LIKE 'VT%' THEN 'Venti'
+        WHEN drink LIKE 'GR%' THEN 'Grande'
+        WHEN drink LIKE 'TL%' THEN 'Tall'
+        ELSE null
+	END AS Size
+FROM espresso_beverages
+UNION
+SELECT drink,
+	CASE
+		WHEN drink LIKE 'TR %' THEN 'Trenta'
+        WHEN drink LIKE 'VT%' THEN 'Venti'
+        WHEN drink LIKE 'GR%' THEN 'Grande'
+        WHEN drink LIKE 'TL%' THEN 'Tall'
+        ELSE null
+	END AS Size
+FROM refreshments
+UNION
+SELECT drink,
+	CASE
+		WHEN drink LIKE 'TR %' THEN 'Trenta'
+        WHEN drink LIKE 'VT%' THEN 'Venti'
+        WHEN drink LIKE 'GR%' THEN 'Grande'
+        WHEN drink LIKE 'TL%' THEN 'Tall'
+        ELSE null
+	END AS Size
+FROM tea_beverages
+ORDER BY 
+	CASE Size
+		WHEN 'Trenta' THEN 1
+        WHEN 'Venti' THEN 2
+        WHEN 'Grande' THEN 3
+        WHEN 'Tall' THEN 4
+        Else 5
+	END,
+drink;
