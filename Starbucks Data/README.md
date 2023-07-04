@@ -1,3 +1,3 @@
 # Starbucks Related Data
 
-All the data here is related to in store use at a Starbucks Location. All data was collected by myself during my shifts.
+All the data here is related to in store use at a Starbucks Location. All data was collected by myself during my shifts, or from the Coffee Quality Institute.
