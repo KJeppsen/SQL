@@ -1,0 +1,48 @@
+/* This dataset is showing all video game sales of over 100,000 copies */
+
+SELECT * FROM VGSales;
+
+/* How many games were sold in each region? */
+SELECT ROUND(SUM(NA_Sales), 2) AS Total_NA_Sales
+, ROUND(SUM(EU_sales), 2) AS Total_EU_Sales
+, ROUND(SUM(JP_Sales), 2) AS Total_JP_Sales
+, ROUND(SUM(Other_Sales), 2) AS Total_Other_Sales
+FROM VGSales;
+
+/* What Platform Sold the most games? */
+SELECT Platform
+, ROUND(SUM(Global_Sales), 2) AS Total_Sales
+FROM VGSales
+GROUP BY Platform
+ORDER BY Total_Sales DESC
+LIMIT 1;
+
+/* What are the 5th through 10th most popular games in EU? */
+SELECT Name
+, EU_Sales
+FROM VGSales
+ORDER BY EU_Sales DESC
+LIMIT 4, 6;
+
+/* How many Pokemon Games were sold and what was the quantity sold of these games, not inclucing sales from Japan */
+SELECT Name
+, (global_sales - jp_sales) AS Sales
+FROM VGSales
+WHERE name LIKE '%Pokemon%'
+ORDER BY Sales DESC;
+
+/* What is the top 10 most sold Action Games? */
+SELECT Name
+, Genre
+, Global_Sales
+FROM VGSales
+WHERE Genre = 'Action'
+AND Name NOT LIKE '%FIFA%'
+ORDER BY Global_Sales DESC
+LIMIT 10;
+
+/*What is the average year for games sold for titles with more than 10 million copies sold? */
+SELECT FLOOR(AVG(Year))
+FROM VGSales
+WHERE Global_Sales > 10.00
+AND Year NOT NULL;
