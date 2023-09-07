@@ -1,0 +1,381 @@
+CREATE TABLE JUNE_BG
+(id INTEGER PRIMARY KEY AUTOINCREMENT
+, Log_Day DATE
+, Log_Time TIME
+, Basal REAL
+, Bolus REAL
+, Blood_Sugar INTEGER
+, Carbs INTEGER
+, Activity_Duration INTEGER -- Measured in Minutes
+, Notes VARCHAR(500));
+
+INSERT INTO JUNE_BG (Log_Day, Log_Time, Basal, Bolus, Blood_Sugar, Carbs, Activity_Duration, Notes)
+VALUES
+('2023-06-25', '00:58', NULL, 2.25, 230, NULL, NULL, "2.25 corr., Correction"),
+('2023-06-25', '11:20', NULL, NULL, 156, NULL, NULL, NULL),
+('2023-06-25', '16:33', NULL, 0.74, 207, NULL, NULL, "0.74 corr., Correction"),
+('2023-06-25', '18:50', NULL, NULL, 215, NULL, NULL, NULL),
+('2023-06-25', '21:44', NULL, 7.22, 251, 40, NULL, "4.0 food 7.22 corr., Snack, Correction"),
+('2023-06-25', '22:32', NULL, NULL, 231, NULL, NULL, "Correction"),
+('2023-06-25', '23:13', NULL, NULL, 188, NULL, NULL, NULL),
+('2023-06-26', '01:50', 1.0, NULL, 77, 15, NULL, "Hypo Feeling, Snack"),
+('2023-06-26', '08:43', 1.0, NULL, 68, NULL, NULL, "Hypo Feeling"),
+('2023-06-26', '11:12', 1.2, NULL, 152, NULL, NULL, NULL),
+('2023-06-26', '14:13', 1.4, 9.4, 118, 85, NULL, "8.5 food 0.8 corr., Hypo Feeling, Lunch"),
+('2023-06-26', '14:46', 1.4, 4, 280, 40, NULL, "Correction"),
+('2023-06-26', '15:06', 1.4, NULL, 226, NULL, NULL, NULL),
+('2023-06-26', '17:05', 1.4, 2.55, 252, NULL, NULL, "2.55 corr., Correction"),
+('2023-06-26', '18:03', 1.4, NULL, 211, NULL, NULL, NULL),
+('2023-06-26', '19:12', 1.4, NULL, 162, NULL, NULL, NULL),
+('2023-06-26', '20:32', 1.3, NULL, 61, NULL, 75, "Hypo Feeling"),
+('2023-06-26', '22:33', 1.3, 4.53, 77, 55, NULL, "4.53 food, BASAL RATE WAS CHANGED"),
+('2023-06-27', '00:35', 1.0, NULL, 121, 41, NULL, "Dinner"),
+('2023-06-27', '01:33', 1.0, NULL, 173, NULL, NULL, "Correction"),
+('2023-06-27', '08:12', 1.0, 2.35, 251, NULL, NULL, "2.35 corr., Correction"),
+('2023-06-27', '11:19', 1.2, 1.3, 215, NULL, NULL, "1.3 corr., Correction"),
+('2023-06-27', '14:01', 1.4, 2.37, 67, 45, NULL, "2.37 food, Hypo Feeling, Snack"),
+('2023-06-27', '14:44', 1.4, 2.5, 188, 25, NULL, "2.5 food, Snack"),
+('2023-06-27', '16:03', 1.4, NULL, 141, NULL, NULL, NULL),
+('2023-06-27', '17:23', 1.4, NULL, 112, NULL, NULL, "Hypo Feeling"),
+('2023-06-27', '18:15', 1.4, NULL, 100, 12, NULL, "Hypo Feeling"),
+('2023-06-27', '19:41', 1.4, NULL, 69, 12, NULL, "Hypo Feeling"),
+('2023-06-28', '00:50', 1.0, NULL, 203, NULL, NULL, "After Meal"),
+('2023-06-28', '08:22', 1.0, NULL, 61, 15, NULL, "Hypo Feeling"),
+('2023-06-28', '10:38', 1.2, NULL, 67, 35, NULL, "Hypo Feeling"),
+('2023-06-28', '12:33', 1.2, 2.0, 280, NULL, NULL, "2.0 corr., Correction"),
+('2023-06-28', '13:05', 1.4, NULL, 248, NULL, NULL, NULL),
+('2023-06-28', '13:52', 1.4, 1.4, 267, NULL, NULL, "1.4 corr., Correction"),
+('2023-06-28', '16:59', 1.4, 2.5, 187, 25, NULL, "2.5 food"),
+('2023-06-28', '18:56', 1.4, 3.37, 217, 20, NULL, "2.0 food 1.37 corr."),
+('2023-06-28', '19:19', 1.4, 5.8, 233, 58, NULL, "5.8 food, Snack"),
+('2023-06-28', '21:22', 1.3, 7.12, 256, 45, NULL, "2.12 food 5.0 corr."),
+('2023-06-28', '23:02', 1.3, 6.77, 255, 60, NULL, "6.77 food"),
+('2023-06-29', '01:52', 1.0, 3.23, 363, NULL, NULL, "3.23 corr., Correction"),
+('2023-06-29', '11:35', 1.2, 5.12, 158, 45, NULL, "5.12 food"),
+('2023-06-29', '13:32', 1.4, 4.38, 59, 55, NULL, "4.38 food, Hypo Feeling, Lunch, Before Meal"),
+('2023-06-29', '16:02', 1.4, 2.13, 258, NULL, NULL, "2.13 corr."),
+('2023-06-29', '17:41', 1.4, 1.34, 245, NULL, NULL, "1.34 corr., Correction"),
+('2023-06-29', '21:31', 1.3, 6.0, 450, NULL, NULL, "6.0 corr., Correction, After Meal"),
+('2023-06-30', '11:32', 1.2, 5.82, 195, 45, NULL, "5.0 food 0.82 corr."),
+('2023-06-30', '13:24', 1.4, 3.01, 68, 45, 30, "3.01 food, Hypo Feeling, Snack, Vanilla Bean Cupcake and Powerade"),
+('2023-06-30', '16:18', 1.4, 0.44, 172, NULL, NULL, "0.44 corr."),
+('2023-06-30', '17:16', 1.4, 4.4, NULL, 44, NULL, "4.4 food, Lunch"),
+('2023-06-30', '23:12', 1.3, 2.0, 250, NULL, NULL, "2.0 corr., Correction, After Meal");
+
+SELECT * FROM JUNE_BG;
+
+CREATE TABLE JULY_BG
+(id INTEGER PRIMARY KEY AUTOINCREMENT
+, Log_Day DATE
+, Log_Time TIME
+, Basal REAL
+, Bolus REAL
+, Blood_Sugar INTEGER
+, Carbs INTEGER
+, Activity_Duration INTEGER -- Measured in Minutes
+, Notes VARCHAR(500));
+
+INSERT INTO JULY_BG (Log_Day, Log_Time, Basal, Bolus, Blood_Sugar, Carbs, Activity_Duration, Notes)
+VALUES
+('2023-07-01', '01:04', 1.0, 2.06, 258, NULL, NULL, "2.06 corr., Correction"),
+('2023-07-01', '06:27', 1.0, NULL, 68, 15, NULL, "Hypo Feeling"),
+('2023-07-01', '10:49', 1.2, NULL, 93, NULL, NULL, NULL),
+('2023-07-01', '12:52', 1.2, 1.85, 160, 15, NULL, "1.85 food, Before Meal"),
+('2023-07-01', '13:20', 1.4, 4.44, NULL, 40, NULL, "4.44 food, Lunch"),
+('2023-07-01', '14:12', 1.4, NULL, 69, NULL, NULL, "Hypo Feeling, After Meal"),
+('2023-07-01', '16:48', 1.4, 0.83, 148, 10, NULL, "0.83 food, After Meal"),
+('2023-07-01', '19:57', 1.4, NULL, 95, NULL, NULL, "Hypo Feeling"),
+('2023-07-01', '23:47', 1.3, 2.14, 258, NULL, NULL, "2.14 corr., Correction"),
+('2023-07-02', '01:35', 1.0, 1.61, 250, NULL, NULL, "1.61 corr."),
+('2023-07-02', '11:09', 1.2, 0.74, 99, 15, NULL, "0.74 food, Snack, Waking Up, Drip Coffee"),
+('2023-07-02', '13:08', 1.4, NULL, 67, 35, NULL, NULL),
+('2023-07-02', '14:08', 1.4, 2.36, 175, 18, NULL, "1.8 food 0.56 corr., Correction"),
+('2023-07-02', '15:30', 1.4, 4.5, NULL, 45, NULL, "4.5 food, Snack, Chicken in a Biscuit"),
+('2023-07-02', '16:27', 1.4, NULL, 119, NULL, NULL, "After Meal"),
+('2023-07-02', '18:37', 1.4, NULL, 104, NULL, NULL, "Testing to make sure I wasn't going high"),
+('2023-07-02', '19:56', 1.4, 0.32, 166, NULL, NULL, "0.32 corr., Correction"),
+('2023-07-02', '21:52', 1.3, 5.7, 158, 50, NULL, "5.56 food, 0.14 corr., Dinner, Black Ramen"),
+('2023-07-02', '23:24', 1.3, 2.0, 71, 41, 30, "2.0 food, Hypo Feeling, After Meal, Sex"),
+('2023-07-03', '11:02', 1.2, 3.02, 59, 42, NULL, "3.02 food, Hypo Feeling, Before Meal, Snack, Pepsi"),
+('2023-07-03', '11:09', 1.2, 5.78, 153, 52, NULL, "5.78 food, Before Meal, Breakfast(Grains, Potato, Meat, Eggs), Ranch Benedict"),
+('2023-07-03', '13:29', 1.4, NULL, 72, 12, NULL, "Hypo Feeling, Snack, After Meal, Banana"),
+('2023-07-03', '20:23', 1.4, NULL, 90, 40, NULL, "Dinner, Bacon Swiss Burger"),
+('2023-07-03', '22:27', 1.3, 2.06, 253, NULL, NULL, "2.06 corr., Correction"),
+('2023-07-03', '23:28', 1.3, 5.75, 251, 41, NULL, "4.56 food, 1.19 corr., Snack, Correction, Dr. Pepper"),
+('2023-07-04', '01:20', 1.0, NULL, 219, NULL, NULL, "Before Bed"),
+('2023-07-04', '10:51', 1.2, NULL, 118, NULL, NULL, NULL),
+('2023-07-04', '14:05', 1.4, NULL, 97, NULL, NULL, NULL),
+('2023-07-04', '15:58', 1.4, 4.52, 201, 35, NULL, "3.5 food 1.02 corr., Snack, Correction, Dragon Drink"),
+('2023-07-04', '16:29', 1.4, 4.2, NULL, 42, NULL, "4.2 food, Lunch"),
+('2023-07-04', '17:37', 1.4, NULL, 87, NULL, NULL, NULL),
+('2023-07-04', '18:50', 1.4, NULL, 86, NULL, NULL, NULL),
+('2023-07-04', '20:40', 1.3, NULL, 111, NULL, NULL, NULL),
+('2023-07-05', '01:19', 1.0, 3.45, 366, NULL, NULL, "3.45 corr., After Meal, Correction, Changed site and forgot insulin for food"),
+('2023-07-05', '05:43', 1.0, 4.23, 383, NULL, NULL, "4.23 corr., Correction"),
+('2023-07-05', '10:59', 1.2, NULL, 177, NULL, NULL, NULL),
+('2023-07-05', '14:01', 1.4, NULL, 82, NULL, 60, "Putting together furniture"),
+('2023-07-05', '16:07', 1.4, 4.34, 241, 25, NULL, "2.5 food 1.84 corr., Snack, Correction"),
+('2023-07-05', '18:28', 1.4, NULL, 107, NULL, NULL, NULL),
+('2023-07-05', '19:01', 1.4, 1.78, 73, 33, NULL, "1.78 foodm, Hypo Feeling, Snack, Cookie"),
+('2023-07-05', '22:38', 1.3, 6.3, 87, 68, NULL, "6.3 food, Hypo Feeling, Dinner"),
+('2023-07-06', '10:33', 1.2, NULL, 117, NULL, NULL, "In range all night"),
+('2023-07-06', '14:38', 1.4, NULL, 97, NULL, NULL, NULL),
+('2023-07-06', '18:49', 1.4, 5.5, 250, 35, NULL, "3.5 food 2.0 corr., Correction, Dinner"),
+('2023-07-06', '21:32', 1.3, NULL, 220, NULL, NULL, NULL),
+('2023-07-07', '01:47', 1.0, NULL, 115, NULL, NULL, NULL),
+('2023-07-07', '09:43', 1.0, 0.69, 66, 20, NULL, "0.69 food, Hypo Feeling"),
+('2023-07-07', '13:16', 1.4, 1.85, 252, NULL, NULL, "1.85 corr., Correction"),
+('2023-07-07', '14:31', 1.4, 5.5, NULL, 55, NULL, "5.5 food, Snack, WM"),
+('2023-07-07', '19:49', 1.4, 0.34, 68, 20, NULL, "0.34 food, Hypo Feeling, Snack, Cookie"),
+('2023-07-08', '02:17', 1.0, NULL, 389, NULL, NULL, NULL),
+('2023-07-08', '10:19', 1.2, 1.98, 255, NULL, NULL, "1.98 corr., Correction"),
+('2023-07-08', '20:19', 1.3, NULL, 262, NULL, NULL, NULL),
+('2023-07-08', '23:10', 1.3, 4.95, 164, 42, NULL, "4.67 food 0.28 corr., After Meal, Chicken");
+
+
+INSERT INTO JULY_BG (Log_Day, Log_Time, Basal, Bolus, Blood_Sugar, Carbs, Activity_Duration, Notes)
+VALUES
+('2023-07-09', '01:53', 1.0, NULL, 88, NULL, NULL, "Hypo Feeling"),
+('2023-07-09', '10:54', 1.2, NULL, 154, NULL, NULL, NULL),
+('2023-07-09', '13:41', 1.2, 6.62, 117, 65, NULL, "6.62 food, Snack, Arizona Juice"),
+('2023-07-09', '14:02', 1.2, NULL, NULL, NULL, NULL, "CGM Went Out"),
+('2023-07-09', '19:53', 1.4, 4.8, NULL, 48, NULL, "4.8 food, Snack, Cake Pop and Soda"),
+('2023-07-09', '20:54', 1.3, 4.1, 160, 41, NULL, "4.1 food, Snack"),
+('2023-07-10', '01:59', 1.0, 4.16, 379, NULL, NULL, "4.16 corr. After Meal, Correction"),
+('2023-07-10', '10:45', 1.2, NULL, 144, NULL, NULL, "Wake Up"),
+('2023-07-10', '16:05', 1.4, NULL, 95, NULL, NULL, NULL),
+('2023-07-10', '16:32', 1.4, NULL, NULL, NULL, NULL, "New CGM"),
+('2023-07-10', '19:28', 1.4, 8.1, 205, 65, NULL, "6.5 food 1.6 corr., Before Meal, Dinner, Wendy's, /Didn't Put Enough In"),
+('2023-07-10', '21:38', 1.3, 2.02, 251, NULL, NULL, "2.02 corr., Correction"),
+('2023-07-11', '00:05', 1.0, 2.04, 252, NULL, NULL, "2.04 corr., Correction"),
+('2023-07-11', '01:10', 1.0, NULL, 201, NULL, NULL, NULL),
+('2023-07-11', '03:02', 1.0, NULL, 79, 12, NULL, NULL),
+('2023-07-11', '06:13', 1.0, NULL, 252, NULL, NULL, "Correction"),
+('2023-07-11', '11:31', 1.2, NULL, 140, NULL, NULL, NULL),
+('2023-07-11', '14:11', 1.2, NULL, 119, NULL, NULL, NULL),
+('2023-07-11', '16:10', 1.4, 3.0, 215, 15, NULL, "1.5 food 1.5 corr., Snack, Brownie"),
+('2023-07-11', '17:18', 1.4, 2.0, 208, 20, NULL, "2.0 food, Lunch, Santa Fe Salad"),
+('2023-07-11', '19:35', 1.4, NULL, 67, 25, NULL, "Hypo Feeling, Apple Juice"),
+('2023-07-11', '21:20', 1.3, 5.78, 158, 52, NULL, "5.78 food, Dinner, Pizza"),
+('2023-07-11', '22:03', 1.3, 0.69, 132, 41, NULL, "0.69 food, Snack, Soda, /Insulin on Board"),
+('2023-07-11', '23:13', 1.3, 1.5, 254, NULL, NULL, "1.5 corr., Correction, /High because of IOB"),
+('2023-07-12', '00:39', 1.0, 3.12, 323, NULL, NULL, "3.12 corr., Correction"),
+('2023-07-12', '11:14', 1.2, 5.54, 204, 41, NULL, "4.56 food 0.98 corr., Snack, Correction, Soda"),
+('2023-07-12', '13:36', 1.4, NULL, 54, 25, NULL, "Hypo Feeling, Snack, Doritos"),
+('2023-07-12', '14:02', 1.4, NULL, 89, NULL, NULL, NULL),
+('2023-07-12', '15:19', 1.4, 6.5, 156, 65, NULL, "6.5 food, Snack, Peach Lemonade"),
+('2023-07-12', '17:41', 1.4, NULL, 79, 25, NULL, "Hypo Feeling, Snack, Apple Juice"),
+('2023-07-12', '18:58', 1.4, 3.46, 113, 42, NULL, "3.46 food, Snack Cappacino"),
+('2023-07-12', '20:35', 1.3, 1.67, 68, 41, NULL, "1.67 food, Hypo Feeling"),
+('2023-07-13', '00:34', 1.0, 3.22, 252, 12, NULL, "1.2 food 2.02 corr."),
+('2023-07-13', '10:39', 1.2, 1.58, 237, NULL, NULL, "1.58 corr., Correction"),
+('2023-07-13', '11:22', 1.2, 7.22, NULL, 65, NULL, "7.22 food, Lunch, Vege Crepe"),
+('2023-07-13', '12:58', 1.2, 1.88, 73, 40, NULL, "1.88 food, Snack, Dr. Pepper"),
+('2023-07-13', '15:51', 1.2, NULL, 130, NULL, NULL, NULL),
+('2023-07-13', '22:50', 1.3, 0.62, 181, NULL, NULL, "0.62 corr."),
+('2023-07-14', '01:36', 1.0, 3.08, 185, 22, NULL, "2.44 food 0.64 corr., Snack, Chocolate Milk"),
+('2023-07-14', '09:44', 1.0, NULL, 174, NULL, NULL, NULL),
+('2023-07-14', '13:05', 1.4, 6.6, 230, 48, NULL, "5.33 food 1.27 corr., Lunch, Buffalo Crepe"),
+('2023-07-14', '14:27', 1.4, 2.96, 237, 25, NULL, "2.96 food, After Meal, Correction"),
+('2023-07-14', '14:50', 1.4, NULL, 296, NULL, NULL, "/Unsure of why I'm Spiking"),
+('2023-07-14', '18:37', 1.4, 0.14, 82, 15, NULL, "0.14 food, Hypo Feeling"),
+('2023-07-14', '19:34', 1.4, NULL, 69, 45, NULL, "Hypo Feeling"),
+('2023-07-14', '22:53', 1.3, 6.14, 129, 59, NULL, "6.14 food, Dinner, Wendys"),
+('2023-07-15', '01:31', 1.0, 0.84, 196, NULL, NULL, "0.84 corr., Correction"),
+('2023-07-15', '10:57', 1.2, NULL, 187, NULL, NULL, NULL),
+('2023-07-15', '12:36', 1.2, 5.12, NULL, 45, NULL, "5.12 food, Snack, Coffee"),
+('2023-07-15', '13:00', 1.4, NULL, 230, NULL, NULL, "/IoB"),
+('2023-07-15', '15:00', 1.4, NULL, 83, NULL, NULL, NULL),
+('2023-07-15', '15:54', 1.4, 4.38, 144, 45, NULL, "4.38 food, Snack, Lemonade"),
+('2023-07-15', '18:13', 1.4, NULL, 93, 15, NULL, "Hypo Feeling"),
+('2023-07-15', '19:10', 1.4, NULL, 73, NULL, NULL, NULL),
+('2023-07-15', '20:06', 1.3, NULL, 60, 20, NULL, "Hypo Feeling, Cookie"),
+('2023-07-15', '23:09', 1.3, 4.91, 129, 48, NULL, "4.91 food, Dinner, 7 Eleven Taquitos and a Butterfinger, /Drank full can of Dr. Pepper without putting insulin in before to bring me back up");
+
+
+INSERT INTO JULY_BG (Log_Day, Log_Time, Basal, Bolus, Blood_Sugar, Carbs, Activity_Duration, Notes)
+VALUES
+('2023-07-16', '01:52', 1.0, 6.21, 300, 30, NULL, "3.89 food 2.32 corr., Snack, Correction, Chocolate Milk"),
+('2023-07-16', '11:30', 1.2, 3.66, 103, 40, NULL, "3.66 food, Snack, Dr. Pepper"),
+('2023-07-16', '14:01', 1.4, NULL, 69, 25, NULL, "Hypo Feeling, Breakfast, Donut, /Need to adjust carb ratio"),
+('2023-07-16', '15:14', 1.4, 1.0, 100, 20, NULL, "1.0 food, Snack"),
+('2023-07-16', '17:33', 1.4, 2.56, 137, 30, NULL, "2.56 food, Snack, Fruit by the foot and gushers"),
+('2023-07-16', '19:16', 1.4, 0.94, 87, 25, NULL, "0.94 food, Peach Lemonade"),
+('2023-07-16', '20:25', 1.3, NULL, 162, NULL, NULL, NULL),
+('2023-07-16', '20:42', 1.3, 4.87, 119, 57, NULL, "4.87 food, Before Meal, Dinner, Beef and Broccoli, /Changed basal rate for work"),
+('2023-07-16', '22:59', 1.3, NULL, 83, NULL, NULL, NULL),
+('2023-07-16', '23:32', 1.3, NULL, 68, 35, NULL, "Hypo Feeling, Snack, Chips and Cottage Cheese"),
+('2023-07-17', '00:17', 1.0, 6.95, 164, 60, NULL, "6.67 food 0.28 corr."),
+('2023-07-17', '01:21', 1.0, NULL, 113, NULL, NULL, NULL),
+('2023-07-17', '09:54', 1.0, 0.49, 177, NULL, NULL, "0.49 corr., Correction"),
+('2023-07-17', '12:36', 1.2, 6.2, 181, 62, NULL, "5.64 food 0.56 corr., Lunch, Before Meal, Panda Express, /After Doctors"),
+('2023-07-17', '13:08', 1.4, NULL, 252, NULL, NULL, "/IoB"),
+('2023-07-17', '14:23', 1.4, 5.79, 262, 55, NULL, "4.58 food 1.21 corr., Snack, Correction, Dr. Pepper"),
+('2023-07-17', '17:07', 1.4, NULL, 131, NULL, NULL, NULL),
+('2023-07-17', '18:31', 1.4, NULL, 149, NULL, NULL, NULL),
+('2023-07-17', '18:54', 1.4, 3.45, 116, 55, NULL, "3.45 food, Before Meal, Dinner, Vegan Grilled Cheese"),
+('2023-07-17', '20:05', 1.3, NULL, NULL, NULL, 60, "walking on Trail"),
+('2023-07-17', '20:24', 1.3, NULL, 75, NULL, NULL, NULL),
+('2023-07-17', '22:24', 1.3, 5.56, NULL, 50, NULL, "5.56 food, Snack, Chicken in a Biscuit"),
+('2023-07-17', '23:38', 1.3, 3.89, NULL, 35, NULL, "3.89 food, Snack"),
+('2023-07-18', '00:51', 1.0, NULL, 165, NULL, NULL, NULL),
+('2023-07-18', '06:37', 1.0, NULL, 315, NULL, NULL, "Correction"),
+('2023-07-18', '11:30', 1.2, NULL, 115, NULL, NULL, NULL),
+('2023-07-18', '13:18', 1.2, NULL, 96, NULL, NULL, NULL),
+('2023-07-18', '17:02', 1.4, NULL, 57, 35, 45, "Hypo Feeling, Throwing Freezer Load"),
+('2023-07-18', '18:33', 1.4, NULL, 151, NULL, NULL, NULL),
+('2023-07-19', '01:12', 1.0, 1.56, 252, NULL, NULL, "1.56 corr., Correction, /Snacked Without Insulin"),
+('2023-07-19', '11:11', 1.2, NULL, 93, NULL, NULL, NULL),
+('2023-07-19', '12:01', 1.2, NULL, 61, NULL, NULL, NULL),
+('2023-07-19', '12:43', 1.2, NULL, 84, NULL, NULL, NULL),
+('2023-07-19', '13:33', 1.4, NULL, 252, NULL, NULL, "Correction"),
+('2023-07-19', '16:41', 1.4, NULL, 69, NULL, NULL, "Hypo Feeling"),
+('2023-07-19', '20:16', 1.3, NULL, 76, NULL, NULL, "Hypo Feeling"),
+('2023-07-20', '01:27', 1.0, NULL, 118, NULL, NULL, NULL),
+('2023-07-20', '10:49', 1.0, NULL, 64, 15, NULL, "Hypo Feeling"),
+('2023-07-20', '12:24', 1.2, NULL, 98, 20, NULL, NULL),
+('2023-07-20', '14:53', 1.4, 3.73, 252, 25, NULL, "2.5 food 1.23 corr., Snack, Correction"),
+('2023-07-20', '15:35', 1.4, 2.92, 286, 35, NULL, "2.92 food, Correction"),
+('2023-07-20', '16:47', 1.4, NULL, 196, NULL, NULL, NULL),
+('2023-07-21', '00:02', 1.0, 6.85, 252, 45, NULL, "4.5 food 2.35 corr., After Meal, Correction, Dinner, Pizza Skillet"),
+('2023-07-21', '01:54', 1.0, NULL, 76, NULL, NULL, NULL),
+('2023-07-21', '10:37', 1.2, NULL, 72, NULL, NULL, "Hypo Feeling"),
+('2023-07-21', '14:08', 1.4, 4.58, 105, 55, NULL, "4.58 food, Lunch, Bella Bee Crepe"),
+('2023-07-21', '15:23', 1.4, 0.28, 111, 25, NULL, "0.28 food"),
+('2023-07-21', '18:06', 1.4, NULL, 178, NULL, NULL, NULL),
+('2023-07-21', '19:54', 1.4, 3.58, 125, 48, NULL, "3.58 food, Snack, Chai Frappe"),
+('2023-07-21', '21:10', 1.3, 1.91, 63, 42, NULL, "1.91 food, Hypo Feeling, Snack, Pepsi"),
+('2023-07-21', '23:17', 1.3, NULL, 71, NULL, NULL, "Hypo Feeling"),
+('2023-07-22', '10:44', 1.2, NULL, 61, 21, NULL, "Hypo Feeling"),
+('2023-07-22', '12:42', 1.2, NULL, 262, NULL, NULL, "Correction"),
+('2023-07-22', '14:20', 1.4, NULL, 64, NULL, NULL, "/'Not' Feeling Low"),
+('2023-07-22', '17:17', 1.4, 1.15, 55, 60, NULL, "1.15 food, Hypo Feeling, Lunch, Tomato Mozz"),
+('2023-07-22', '18:46', 1.4, 2.24, 120, 35, NULL, "2.24 food, Snack, Caramel Latte"),
+('2023-07-23', '01:12', 1.0, 1.05, 218, NULL, NULL, "1.05 corr., Correction"),
+('2023-07-23', '10:05', 1.2, NULL, 145, NULL, NULL, NULL),
+('2023-07-23', '14:08', 1.4, 4.88, 68, 75, NULL, "4.88 food, Hypo Feeling, Lunch, Wendys"),
+('2023-07-23', '15:32', 1.4, NULL, 91, NULL, NULL, NULL),
+('2023-07-23', '17:26', 1.4, NULL, 180, NULL, NULL, NULL),
+('2023-07-23', '18:12', 1.4, NULL, 157, NULL, NULL, NULL),
+('2023-07-23', '21:20', 1.3, 5.72, 251, 32, NULL, "2.5 food 3.22 corr., Correction, Dinner, Kabobs"),
+('2023-07-24', '00:45', 1.0, 5.17, 252, 36, NULL, "2.5 food 2.67 corr., Snack, Correction, Dr. Pepper"),
+('2023-07-24', '01:45', 1.0, NULL, 129, NULL, NULL, NULL),
+('2023-07-24', '10:34', 1.2, NULL, 72, 30, NULL, "Hypo Feeling, Dr. Pepper, /Below 70 mostly all night"),
+('2023-07-24', '14:12', 1.4, NULL, 69, 25, NULL, "Hypo Feeling"),
+('2023-07-24', '15:25', 1.4, 3.88, 142, 42, NULL, "3.88 food"),
+('2023-07-24', '15:47', 1.4, 4.88, 192, 55, NULL, "4.88 food, Lunch, Wendys"),
+('2023-07-24', '19:22', 1.4, 7.85, 363, 35, NULL, "2.5 food 5.35 corr., Snack, Correction"),
+('2023-07-24', '23:31', 1.3, 6.8, 168, 58, NULL, "6.44 food 0.36 corr., Dinner, Cereal"),
+('2023-07-25', '07:13', 1.0, NULL, 173, NULL, NULL, NULL),
+('2023-07-25', '12:13', 1.2, NULL, 66, 35, NULL, "Hypo Feeling"),
+('2023-07-25', '15:58', 1.4, 3.8, 128, 50, NULL, "3.8 food, Snack, Chai"),
+('2023-07-25', '18:06', 1.4, 1.73, 254, NULL, NULL, "1.73 corr., Correction"),
+('2023-07-25', '21:12', 1.3, 3.88, 158, 48, NULL, "3.88 food, Before Meal, Dinner, BBQ and Cobbler"),
+('2023-07-25', '23:32', 1.3, NULL, 70, NULL, NULL, NULL),
+('2023-07-25', '23:44', 1.3, NULL, 58, NULL, NULL, NULL),
+('2023-07-26', '00:53', 1.0, NULL, 176, NULL, NULL, NULL),
+('2023-07-26', '08:25', 1.0, 1.38, 239, NULL, NULL, "1.38 corr., Correction"),
+('2023-07-26', '14:13', 1.4, 2.83, 75, 37, NULL, "2.83 food, Hypo Feeling, Snack, Butterfingers"),
+('2023-07-26', '19:07', 1.4, NULL, 201, NULL, NULL, NULL),
+('2023-07-26', '20:39', 1.3, NULL, 131, 45, NULL, "Banana and Strawberry Nectar"),
+('2023-07-27', '00:32', 1.0, 5.98, 51, 75, NULL, "5.98 food, Hypo Feeling, Before Meal, Dinner, /Extended bolus of 20/80 in 30 minutes"),
+('2023-07-27', '04:09', 1.0, 2.06, 284, NULL, NULL, "2.06 corr., Correction"),
+('2023-07-27', '10:07', 1.2, 2.21, 196, 15, NULL, "1.5 food 0.71 corr., Breakfast, Coffee"),
+('2023-07-27', '15:28', 1.4, NULL, 83, NULL, NULL, NULL),
+('2023-07-27', '17:07', 1.4, 5.82, 204, 59, NULL, "5.0 food 0.82 corr., Snack, Correction, Chai"),
+('2023-07-27', '22:08', 1.3, 2.12, 256, NULL, NULL, "2.12 corr., Correction"),
+('2023-07-28', '00:51', 1.0, 2.68, 227, 15, NULL, "1.5 food 1.18 corr., Snack, Correction"),
+('2023-07-28', '09:42', 1.0, 1.92, 275, NULL, NULL, "1.92 corr., Correction"),
+('2023-07-28', '10:31', 1.2, 4.75, 269, 41, NULL, "4.75 food, Snack, Correction, Dr. Pepper"),
+('2023-07-28', '15:11', 1.4, 2.33, 165, 25, NULL, "2.33 food, Snack, Cake Pop"),
+('2023-07-28', '17:53', 1.4, 1.67, 250, NULL, NULL, "1.67 corr., Correction"),
+('2023-07-28', '20:46', 1.3, 1.57, 244, NULL, NULL, "1.57 corr."),
+('2023-07-28', '22:48', 1.3, 6.26, 263, 36, NULL, "4.76 food 1.5 corr., Before Meal, Correction, Dinner, Roast"),
+('2023-07-29', '01:04', 1.0, 6.99, 299, 40, NULL, "4.0 food 2.99 corr., Snack, Cereal, /Not enough carbs for dinner"),
+('2023-07-29', '02:44', 1.0, 1.11, 300, NULL, NULL, "1.11 corr., Correction"),
+('2023-07-29', '10:56', 1.2, 2.84, 68, 41, NULL, "2.84 food, Hypo Feeling, Snack, Dr. Pepper, /Had to bring up bg before work"),
+('2023-07-29', '13:08', 1.4, NULL, 86, 35, NULL, "Hypo Feeling, Latte"),
+('2023-07-29', '13:30', 1.4, 1.99, 132, 48, NULL, "1.99 food, Lunch, Bella Bee"),
+('2023-07-29', '18:07', 1.4, 4.43, 141, 55, NULL, "4.43 food, Snack"),
+('2023-07-30', '02:16', 1.0, 3.02, 249, 15, NULL, "1.5 food 1.52 corr., Snack, Correction, Milk"),
+('2023-07-30', '06:00', 1.0, 3.07, 252, 15, NULL, "1.5 food 1.57 corr., Snack, Correction, Milk"),
+('2023-07-30', '09:12', 1.0, NULL, 186, NULL, NULL, NULL),
+('2023-07-30', '11:35', 1.2, 3.79, 158, 40, NULL, "3.79 food. Snack, Pepsi"),
+('2023-07-30', '13:07', 1.4, NULL, 69, NULL, NULL, "Hypo Feeling"),
+('2023-07-30', '17:22', 1.4, NULL, 72, NULL, NULL, "Hypo Feeling"),
+('2023-07-30', '20:52', 1.3, NULL, 68, NULL, NULL, NULL),
+('2023-07-30', '21:58', 1.3, 0.72, 186, NULL, NULL, "0.72 corr., Correction"),
+('2023-07-30', '23:59', 1.3, 5.87, 200, 50, NULL, "4.5 food 1.37 corr., Correction, Dinner, Subway"),
+('2023-07-31', '04:43', 1.0, 2.08, 285, NULL, NULL, "2.88 corr., Correction"),
+('2023-07-31', '05:15', 1.0, 1.5, NULL, 15, NULL, "1.5 food, Snack, Milk, /Wake up from cat"),
+('2023-07-31', '09:40', 1.0, 1.23, 230, NULL, NULL, "1.23 corr., Correction, /High all night"),
+('2023-07-31', '17:12', 1.4, NULL, 61, 25, NULL, "Hypo Feeling, Snack, Chips"),
+('2023-07-31', '21:01', 1.3, 8.48, 196, 68, NULL, "6.8 food 1.68 corr., Before Meal, Dinner, McDonald's");
+
+SELECT * FROM JUNE_BG
+UNION 
+SELECT * FROM JULY_BG;
+
+/* Finding logs where I was low, but didn't record that I felt low */
+
+SELECT Log_Day
+, Log_Time
+, Bolus
+, Blood_Sugar
+, Carbs
+, Notes
+FROM (
+  SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+  FROM JUNE_BG
+  UNION 
+  SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+  FROM JULY_BG
+) AS Combined_Months
+WHERE Blood_Sugar <= 100
+AND Notes NOT LIKE '%Hypo Feeling%';
+
+/* Wanting to find out if there's a correlation for when my blood sugar is high, and if I seem to be snacking/hungry as a symptom */
+
+SELECT Log_Day
+, Log_Time
+, Bolus
+, Blood_Sugar
+, Carbs
+, Notes
+, (CASE
+    WHEN Blood_Sugar >= 200 AND Notes LIKE "%Snack%" THEN 'Yes'
+    ELSE 'No'
+END) AS High_Snacks
+FROM (
+  SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+  FROM JUNE_BG
+  UNION ALL
+  SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+  FROM JULY_BG
+) AS Combined_Months
+ORDER BY Log_Day ASC;
+
+WITH High_Snacks_Counts AS (
+    SELECT
+        COUNT(*) AS TotalRows,
+        SUM(CASE
+                WHEN Blood_Sugar >= 200 AND Notes LIKE "%Snack%" THEN 1
+                ELSE 0
+            END) AS High_Snacks_Rows
+    FROM (
+        SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+        FROM JUNE_BG
+        WHERE Blood_Sugar >= 200
+        UNION ALL
+        SELECT Log_Day, Log_Time, Bolus, Blood_Sugar, Carbs, Notes
+        FROM JULY_BG
+        WHERE Blood_Sugar >= 200
+    ) AS Combined_Months
+)
+SELECT TotalRows
+, High_Snacks_Rows
+, ROUND(CASE 
+    WHEN TotalRows = 0 THEN 0 -- To handle division by zero
+    ELSE (High_Snacks_Rows * 100.0 / TotalRows)
+END, 2) AS Percentage
+FROM High_Snacks_Counts;
