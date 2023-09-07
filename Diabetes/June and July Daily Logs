@@ -374,8 +374,5 @@ WITH High_Snacks_Counts AS (
 )
 SELECT TotalRows
 , High_Snacks_Rows
-, ROUND(CASE 
-    WHEN TotalRows = 0 THEN 0 -- To handle division by zero
-    ELSE (High_Snacks_Rows * 100.0 / TotalRows)
-END, 2) AS Percentage
+, ROUND((High_Snacks_Rows * 100.0 / TotalRows), 2) AS Percentage
 FROM High_Snacks_Counts;
